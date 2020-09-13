@@ -1,12 +1,17 @@
 # nextjs application
 
+Create FE Assets first:
+`cd src/main/frontend` && `yarn` && `yarn build`, this will create prerendered react html pages and optimized assets, and copy them over to the correct `static` folders. (html to `th`, assets to `static`).
+
+Every html page basically contains all the correct links/assets and is optimized individually.
+
 ## Starting the website on your local machine
 Just start `nextjsApplication` with the *dev* profile and keep it running.
 This will startup the website using a local database on port **8080**.
 
 Browsing to http://localhost:8080 should give you the homepage.
 
-> NOTE: you can force the dev profile by specifying system property *-Dspring.profiles.active=dev* 
+> NOTE: you can force the dev profile by specifying system property *-Dspring.profiles.active=dev*
 
 ## Administration UI
 The administration UI is available on http://localhost:8080/admin.
