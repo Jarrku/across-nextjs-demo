@@ -1,0 +1,30 @@
+acrossHibernate:
+  create-unit-of-work-factory: true
+
+adminWebModule:
+  login:
+    rememberMe:
+      key: nextjs-changeme
+  root-path: /admin
+
+applicationInfo:
+  applicationId: nextjs
+  applicationName: nextjs
+  buildDate: "@timestamp@"
+  buildId: "@pom.version@-@build.revision@"
+
+build:
+  number: "@build.revision@"
+
+debugWebModule:
+  root-path: /debug
+  security:
+    password: nextjs-changeme
+
+logging:
+  request-response:
+    enabled: true
+
+userModule:
+  require-email-unique: true
+

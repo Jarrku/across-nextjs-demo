@@ -1,0 +1,24 @@
+across:
+  development:
+    active: true
+
+acrossHibernate:
+  hibernate-properties:
+    hibernate.format_sql: false
+    hibernate.use_sql_comments: false
+    hibernate.show_sql: false
+
+applicationInfo:
+  buildDate: "2020-09-13 20:23:03"
+  environmentId: development
+
+server:
+  error:
+    includeStacktrace: ALWAYS
+  port: 8080
+
+spring:
+  datasource:
+    url: "jdbc:h2:./local-data/db/nextjs-db"
+    username: sa
+

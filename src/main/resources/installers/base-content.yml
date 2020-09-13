@@ -1,0 +1,11 @@
+assets:
+  page:
+    /example-page:
+      title: Example page
+      published: false
+  article:
+    - title: "Example Article"
+      objectId: "wcm:asset:article:example-article"
+      articleType: news
+      publication: news
+      published: false
