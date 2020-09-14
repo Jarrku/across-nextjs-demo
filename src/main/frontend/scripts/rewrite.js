@@ -35,9 +35,10 @@ getFiles().then((files) => {
       const src = $el.attr('src')
       if (!src || !src.includes('_next')) return
 
-      // $el.attr('th:src', '@{' + src + '}')
+      $el.attr('th:src', '@{' + src + '}')
+      $el.attr('src', null);
       // TODO TEMP FIX
-      $el.attr('src', "/across/resources/static/development" + src.replace("@static:", ""));
+      // $el.attr('src', "/across/resources/static/development" + src.replace("@static:", ""));
 
     })
 
