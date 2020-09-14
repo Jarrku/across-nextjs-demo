@@ -1,19 +1,24 @@
-declare module "*.svg" {
-  const content: any;
-  export default content;
+declare module "*.jpeg" {
+  const value: string;
+  export = value;
 }
 
 declare module "*.png" {
-  const content: any;
-  export default content;
+  const value: string;
+  export = value;
 }
 
-declare module "*.jpg" {
-  const content: any;
-  export default content;
+declare module "*.svg" {
+  const value: string;
+  export = value;
 }
 
-declare module "*.ico" {
-  const content: any;
-  export default content;
+declare module "*.gif" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.webp" {
+  const value: string;
+  export = value;
 }

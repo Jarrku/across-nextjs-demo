@@ -1,5 +1,8 @@
 const fs = require('fs-extra')
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
+const nextJsConfig = require('../next.config.js');
+
+const assetPrefix = nextJsConfig.assetPrefix;
 
 async function getFiles(path = './out/') {
   const entries = await fs.promises.readdir(path, { withFileTypes: true })
@@ -22,6 +25,20 @@ async function getFiles(path = './out/') {
   return files
 }
 
+function rewriteAttr(el, attribute, $) {
+  $(el).each((i, el) => {
+    const $el = $(el)
+    const current = $el.attr(attribute);
+
+    if(!current || !current.startsWith(assetPrefix)) return;
+
+    $el.attr(`th:${attribute}`, '@{' + current + '}')
+    // $el.attr('src', "/across/resources/static/development" + src.replace("@static:", ""));
+
+    $el.attr(attribute, null)
+  })
+}
+
 getFiles().then((files) => {
   const htmlFiles = files.filter((file) => file.endsWith('.html'))
 
@@ -29,26 +46,8 @@ getFiles().then((files) => {
     const data = await fs.readFile(file, 'utf8')
     const $ = cheerio.load(data)
 
-    $('script').each((i, el) => {
-      const $el = $(el)
-
-      const src = $el.attr('src')
-      if (!src || !src.includes('_next')) return
-
-      $el.attr('th:src', '@{' + src + '}')
-      $el.attr('src', null);
-      // TODO TEMP FIX
-      // $el.attr('src', "/across/resources/static/development" + src.replace("@static:", ""));
-
-    })
-
-    $('link[rel=preload]').each((i, el) => {
-      const $el = $(el)
-
-      const href = $el.attr('href')
-      $el.attr('th:href', '@{' + href + '}')
-      $el.attr('href', null)
-    })
+    rewriteAttr("script", "src", $);
+    rewriteAttr("link", "href", $);
 
     const parsedHtml = $.root().html()
     return fs.outputFile(file, parsedHtml)

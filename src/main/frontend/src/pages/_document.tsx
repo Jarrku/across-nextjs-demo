@@ -25,7 +25,10 @@ class MyDocument extends Document<{ isLayout: boolean }> {
   }
 
   render() {
-    const htmlAttrs = {
+    const htmlAttrs: {
+      'xmlns:th': string
+      'th:fragment'?: string
+    } = {
       'xmlns:th': 'http://www.thymeleaf.org',
       'th:fragment': 'content',
     }

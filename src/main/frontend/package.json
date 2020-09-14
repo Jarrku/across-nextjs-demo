@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build && next export && node ./scripts/rewrite.js && node ./scripts/copy.js",
     "start": "next start",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "lint": "eslint . --ext ts --ext tsx --ext js",
@@ -27,11 +29,18 @@
   },
   "dependencies": {
     "next": "9.5.3",
-    "next-optimized-images": "^2.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.0.21",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/addon-storysource": "^6.0.21",
+    "@storybook/addons": "^6.0.21",
+    "@storybook/react": "^6.0.21",
     "@testing-library/react": "^11.0.3",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.13",
@@ -39,7 +48,9 @@
     "@types/react": "^16.9.49",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
+    "@zeit/next-source-maps": "^0.0.3",
     "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
@@ -52,7 +63,10 @@
     "jest": "^26.4.2",
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.3.0",
+    "next-optimized-images": "^2.6.2",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.1",
+    "tailwindcss": "^1.8.10",
     "typescript": "^4.0.2"
   }
 }
