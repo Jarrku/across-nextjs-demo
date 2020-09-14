@@ -8,6 +8,17 @@ Bootstrap a developer-friendly NextJS app configured with:
 - Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
 - Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
 
+## Docker build
+
+```sh
+docker build . -t nextjs-across
+docker run -v `pwd`/../resources/views/th/nextjs/:/build/across-html -v `pwd`/../resources/views/static/nextjs/_next/:/build/across-static nextjs-across
+```
+
+Common error: `operation not permitted, unlink xxx` -> remove generated assets:
+- `src/main/resources/views/static/nextjs/_next`
+- `src/main/resources/views/th/nextjs`
+
 ## Deploy your own
 
 Deploy the example using [Vercel](https://vercel.com):

@@ -5,7 +5,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && node ./scripts/rewrite.js && node ./scripts/copy.js",
+    "build": "yarn build:base && node ./scripts/copy.js",
+    "build:base": "next build && next export && node ./scripts/rewrite.js",
+    "docker:copy": "node ./scripts/copy-docker.js",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
