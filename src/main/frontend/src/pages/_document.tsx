@@ -6,7 +6,6 @@ import Document, {
   DocumentContext,
 } from 'next/document'
 import * as React from 'react'
-import { ThBlock } from '../AcrossComponents'
 
 const inlineScript =
   "(function ( Across ) {Across['' + [[${javascript.key}]]] = [[${javascript.data}]];})( window.Across = window.Across || {} );"

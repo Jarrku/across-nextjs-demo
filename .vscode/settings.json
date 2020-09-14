@@ -1,0 +1,12 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "directory": "./src/main/frontend",
+      "changeProcessCWD": true
+    }
+  ],
+  "eslint.enable": true,
+  "typescript.tsdk": "./src/main/frontend/node_modules/typescript/lib",
+  // "prettier.prettierPath": "./investor-application/src/main/frontend/node_modules/prettier",
+  "eslint.nodePath": "./src/main/frontend/node_modules"
+}

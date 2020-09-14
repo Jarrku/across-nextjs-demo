@@ -112,7 +112,7 @@ exports[`Home page matches snapshot 1`] = `
         <img
           alt="Vercel Logo"
           class="jsx-2250570153 logo"
-          src="/vercel.svg"
+          src="test-file-stub"
         />
       </a>
     </footer>
