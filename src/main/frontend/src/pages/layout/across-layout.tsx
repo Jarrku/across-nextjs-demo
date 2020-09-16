@@ -2,10 +2,6 @@ import { StaticContent, ThBlock } from '../../AcrossComponents'
 
 export default () => (
   <StaticContent element="div">
-    <ThBlock
-      {...{
-        'th:include': '${childPage} :: content',
-      }}
-    />
+    <ThBlock data-th-include="${childPage} :: content" />
   </StaticContent>
 )

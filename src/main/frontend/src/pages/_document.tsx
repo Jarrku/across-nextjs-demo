@@ -24,57 +24,42 @@ class MyDocument extends Document<{ isLayout: boolean }> {
   }
 
   render() {
-    const htmlAttrs: {
-      'xmlns:th': string
-      'th:fragment'?: string
-    } = {
-      'xmlns:th': 'http://www.thymeleaf.org',
-      'th:fragment': 'content',
-    }
-    if (this.props.isLayout) delete htmlAttrs['th:fragment']
-
     return (
-      <Html lang="en" {...htmlAttrs}>
+      <Html
+        lang="en"
+        data-th-fragment={this.props.isLayout ? undefined : 'content'}
+        {...{ 'xmlns:th': 'http://www.thymeleaf.org' }}
+      >
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="" />
           <meta name="author" content="" />
-          <title {...{ 'th:include': '${childPage} :: title' }}>
+          <title data-th-include="${childPage} :: title" key="title">
             Page title
           </title>
 
           <script
-            {...{
-              'th:each':
-                'javascript :${webResourceRegistry.getResources("javascript")}',
-              'th:if': '${javascript.location == "data"}',
-              'th:inline': 'javascript',
-            }}
+            data-th-each='javascript :${webResourceRegistry.getResources("javascript")}'
+            data-th-if='${javascript.location == "data"}'
+            data-th-inline="javascript"
             type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: inlineScript,
             }}
           ></script>
 
-          {/* @ts-ignore */}
           <script
-            {...{
-              'th:each':
-                'javascript :${webResourceRegistry.getResources("javascript")}',
-              'th:src': '@{${javascript.data}}',
-              'th:if':
-                '${javascript.location != "inline" and javascript.location != "data"}',
-            }}
+            data-th-each='javascript :${webResourceRegistry.getResources("javascript")}'
+            data-th-src="@{${javascript.data}}"
+            data-th-if='${javascript.location != "inline" and javascript.location != "data"}'
           ></script>
           <link
             rel="stylesheet"
             type="text/css"
-            {...{
-              'th:each': 'css : ${webResourceRegistry.getResources("css")}',
-              'th:href': '@{${css.data}}',
-            }}
+            data-th-each='css : ${webResourceRegistry.getResources("css")}'
+            data-th-href="@{${css.data}}"
           />
           <link
             href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
@@ -101,7 +86,7 @@ class MyDocument extends Document<{ isLayout: boolean }> {
                   <span className="sr-only">Toggle navigation</span>
                   Menu <i className="fa fa-bars" />
                 </button>
-                <a className="navbar-brand" {...{ 'th:href': '@{/}' }}>
+                <a className="navbar-brand" data-th-href="@{/}">
                   Across Sample
                 </a>
               </div>
@@ -112,16 +97,12 @@ class MyDocument extends Document<{ isLayout: boolean }> {
               >
                 <ul className="nav navbar-nav navbar-right">
                   <li
-                    {...{
-                      'th:each': 'item : ${topNav.items}',
-                      'th:classappend': "${item.selected} ? 'active'",
-                    }}
+                    data-th-each="item : ${topNav.items}"
+                    data-th-classappend="${item.selected} ? 'active'"
                   >
                     <a
-                      {...{
-                        'th:href': '@{${item.url}}',
-                        'th:text': '${item.title}',
-                      }}
+                      data-th-href="@{${item.url}}"
+                      data-th-text="${item.title}"
                     >
                       menu item
                     </a>
@@ -185,13 +166,9 @@ class MyDocument extends Document<{ isLayout: boolean }> {
           /> */}
           {/* @ts-ignore */}
           <script
-            {...{
-              'th:each':
-                'javascript :${webResourceRegistry.getResources("javascript-page-end")}',
-              'th:src': '@{${javascript.data}}',
-              'th:if':
-                '${javascript.location != "inline" and javascript.location != "data"}',
-            }}
+            data-th-each='javascript :${webResourceRegistry.getResources("javascript-page-end")}'
+            data-th-src="@{${javascript.data}}"
+            data-th-if='${javascript.location != "inline" and javascript.location != "data"}'
           ></script>
         </body>
       </Html>

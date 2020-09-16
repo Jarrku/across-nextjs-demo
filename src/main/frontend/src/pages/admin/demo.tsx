@@ -4,7 +4,7 @@ export default function AdminDemo() {
   return (
     <>
       <Head>
-        <title>Demo admin controller</title>
+        <title key="title">Demo admin controller</title>
       </Head>
       Demo admin controller body. The content fragment is included in the
       default admin layout.

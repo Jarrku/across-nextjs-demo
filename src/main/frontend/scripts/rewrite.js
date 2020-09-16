@@ -41,7 +41,7 @@ function rewriteAttr(el, attribute, $) {
 
     if(!current || !current.startsWith(assetPrefix)) return;
 
-    $el.attr(`th:${attribute}`, '@{' + current + '}')
+    $el.attr(`across:static`, current)
     // $el.attr('src', "/across/resources/static/development" + src.replace("@static:", ""));
 
     $el.attr(attribute, null)

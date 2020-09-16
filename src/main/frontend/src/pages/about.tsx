@@ -13,14 +13,17 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About page</title>
+        <title key="title">About page</title>
       </Head>
       <StaticContent
         element="header"
         className="intro-header"
-        {...{
-          'th:style':
-            "${'background-image: url(' + #webapp.path('@static:/nextjs/img/about-bg.jpg') + ')'}",
+        data-th-style="${'background-image: url(' + #webapp.path('@static:/nextjs/img/about-bg.jpg') + ')'}"
+        onMount={(el) => {
+          const h1 = el?.querySelector('h1')
+          if (h1) {
+            h1.innerText = 'But more about you...'
+          }
         }}
       >
         <div className="container">

@@ -1,1 +1,249 @@
-<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="content"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content><meta name="author" content><title th:include="${childPage} :: title">Page title</title><script th:each="javascript :${webResourceRegistry.getResources(&quot;javascript&quot;)}" th:if="${javascript.location == &quot;data&quot;}" th:inline="javascript" type="text/javascript">(function ( Across ) {Across['' + [[${javascript.key}]]] = [[${javascript.data}]];})( window.Across = window.Across || {} );</script><script th:each="javascript :${webResourceRegistry.getResources(&quot;javascript&quot;)}" th:src="@{${javascript.data}}" th:if="${javascript.location != &quot;inline&quot; and javascript.location != &quot;data&quot;}"></script><link rel="stylesheet" type="text/css" th:each="css : ${webResourceRegistry.getResources(&quot;css&quot;)}" th:href="@{${css.data}}"><link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta charset="utf-8"><title th:text="${post.title}">Blog post</title><meta name="next-head-count" content="3"><link rel="preload" as="style" th:href="@{@static:/nextjs/_next/static/css/98e8c38fa47fb30ca40f.css}"><link rel="stylesheet" data-n-g th:href="@{@static:/nextjs/_next/static/css/98e8c38fa47fb30ca40f.css}"><noscript data-n-css="true"></noscript><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/main-d25ebdb4c797ecf9f00e.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/webpack-e067438c4cf4ef2ef178.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/framework.cb05d56be993eb6b088a.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.8f4a9f12d31b3972519e.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/pages/_app-b77c3edf34bb11374560.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/9ba7949065b1bc6c99e147496de5b24e2d519843.3abb30530586b2528136.js}"><link rel="preload" as="script" th:href="@{@static:/nextjs/_next/static/chunks/pages/blog-post-a22edee804e8bcb733f1.js}"></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class="container-fluid"><div class="navbar-header page-scroll"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span>Menu <i class="fa fa-bars"></i></button><a class="navbar-brand" th:href="@{/}">Across Sample</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav navbar-right"><li th:each="item : ${topNav.items}" th:classappend="${item.selected} ? &apos;active&apos;"><a th:href="@{${item.url}}" th:text="${item.title}">menu item</a></li></ul></div></div></nav><div id="__next"><div><header class="intro-header" th:style="${&apos;background-image: url(&apos; + (#strings.isEmpty(post.imageUrl) ? #webapp.path(&apos;@static:/nextjs/img/about-bg.jpg&apos;) : post.imageUrl) + &apos;)&apos;}"><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="post-heading"><h1 th:text="${post.title}">Man must explore, and this is exploration at its greatest</h1><h2 class="subheading" th:if="${post.subTitle}" th:text="${post.subTitle}">Problems look mighty small from 150 miles up</h2><span class="meta">Posted by<!-- --> <a href="#" th:text="${post.author.name}">Across</a><span>on [[${#dates.format(post.publicationSettings.publicationDate,&apos;MMMM d, yyyy&apos;)}]]</span></span></div></div></div></div></header><article><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" th:utext="${post.body}">Blog post body.</div></div></div></article></div></div><footer><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li><li><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright &#xA9; Your Website 2017</p></div></div></div></footer><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/blog-post","query":{},"buildId":"uzYq3PWd1paKun-w8zYIJ","assetPrefix":"@static:/nextjs","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule th:src="@{@static:/nextjs/_next/static/chunks/polyfills-83732ebf2ed7f8a1b2c7.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/main-d25ebdb4c797ecf9f00e.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/webpack-e067438c4cf4ef2ef178.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/framework.cb05d56be993eb6b088a.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.8f4a9f12d31b3972519e.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/pages/_app-b77c3edf34bb11374560.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/9ba7949065b1bc6c99e147496de5b24e2d519843.3abb30530586b2528136.js}"></script><script async th:src="@{@static:/nextjs/_next/static/chunks/pages/blog-post-a22edee804e8bcb733f1.js}"></script><script async th:src="@{@static:/nextjs/_next/static/uzYq3PWd1paKun-w8zYIJ/_buildManifest.js}"></script><script async th:src="@{@static:/nextjs/_next/static/uzYq3PWd1paKun-w8zYIJ/_ssgManifest.js}"></script><script th:each="javascript :${webResourceRegistry.getResources(&quot;javascript-page-end&quot;)}" th:src="@{${javascript.data}}" th:if="${javascript.location != &quot;inline&quot; and javascript.location != &quot;data&quot;}"></script></body></html>
+<!DOCTYPE html>
+<html lang="en" data-th-fragment="content" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content />
+    <meta name="author" content />
+    <title data-th-include="${childPage} :: title">Page title</title>
+    <script
+      data-th-each='javascript :${webResourceRegistry.getResources("javascript")}'
+      data-th-if='${javascript.location == "data"}'
+      data-th-inline="javascript"
+      type="text/javascript"
+    >
+      (function ( Across ) {Across['' + [[${javascript.key}]]] = [[${javascript.data}]];})( window.Across = window.Across || {} );
+    </script>
+    <script
+      data-th-each='javascript :${webResourceRegistry.getResources("javascript")}'
+      data-th-src="@{${javascript.data}}"
+      data-th-if='${javascript.location != "inline" and javascript.location != "data"}'
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      data-th-each='css : ${webResourceRegistry.getResources("css")}'
+      data-th-href="@{${css.data}}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title data-th-text="${post.title}">Blog post</title>
+    <meta name="next-head-count" content="3" />
+    <link
+      rel="preload"
+      as="style"
+      across:static="/nextjs/_next/static/css/98e8c38fa47fb30ca40f.css"
+    />
+    <link
+      rel="stylesheet"
+      data-n-g
+      across:static="/nextjs/_next/static/css/98e8c38fa47fb30ca40f.css"
+    />
+    <noscript data-n-css="true"></noscript>
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/main-a140d580cf631c156faf.js"
+    />
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/webpack-e067438c4cf4ef2ef178.js"
+    />
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/framework.cb05d56be993eb6b088a.js"
+    />
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.b1b4058541fcfd6d9ff9.js"
+    />
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/pages/_app-ddc3d292d15ffcc7c49c.js"
+    />
+    <link
+      rel="preload"
+      as="script"
+      across:static="/nextjs/_next/static/chunks/pages/blog-post-b7dd75cee367e8ba8d9b.js"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only">Toggle navigation</span>Menu
+            <i class="fa fa-bars"></i></button
+          ><a class="navbar-brand" data-th-href="@{/}">Across Sample</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li
+              data-th-each="item : ${topNav.items}"
+              data-th-classappend="${item.selected} ? 'active'"
+            >
+              <a data-th-href="@{${item.url}}" data-th-text="${item.title}"
+                >menu item</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="__next">
+      <div>
+        <header
+          class="intro-header"
+          data-th-style="${'background-image: url(' + (#strings.isEmpty(post.imageUrl) ? #webapp.path('@static:/nextjs/img/about-bg.jpg') : post.imageUrl) + ')'}"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                  <h1 data-th-text="${post.title}">
+                    Man must explore, and this is exploration at its greatest
+                  </h1>
+                  <h2
+                    class="subheading"
+                    data-th-if="${post.subTitle}"
+                    data-th-text="${post.subTitle}"
+                  >
+                    Problems look mighty small from 150 miles up
+                  </h2>
+                  <span class="meta"
+                    >Posted by<!-- -->
+                    <a href="#" data-th-text="${post.author.name}">Across</a
+                    ><span
+                      >on
+                      [[${#dates.format(post.publicationSettings.publicationDate,&apos;MMMM
+                      d, yyyy&apos;)}]]</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <article>
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+                data-th-utext="${post.body}"
+              >
+                Blog post body.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center">
+              <li>
+                <a href="#"
+                  ><span class="fa-stack fa-lg"
+                    ><i class="fa fa-circle fa-stack-2x"></i
+                    ><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="fa-stack fa-lg"
+                    ><i class="fa fa-circle fa-stack-2x"></i
+                    ><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="fa-stack fa-lg"
+                    ><i class="fa fa-circle fa-stack-2x"></i
+                    ><i class="fa fa-github fa-stack-1x fa-inverse"></i></span
+                ></a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">
+              Copyright &#xA9; Your Website 2017
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": { "pageProps": {} },
+        "page": "/blog-post",
+        "query": {},
+        "buildId": "GytowMtwX_I3PxeWdMXvJ",
+        "assetPrefix": "/nextjs",
+        "nextExport": true,
+        "autoExport": true,
+        "isFallback": false
+      }
+    </script>
+    <script
+      nomodule
+      across:static="/nextjs/_next/static/chunks/polyfills-4beebf4ac9054f0bf4e6.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/main-a140d580cf631c156faf.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/webpack-e067438c4cf4ef2ef178.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/framework.cb05d56be993eb6b088a.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.b1b4058541fcfd6d9ff9.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/pages/_app-ddc3d292d15ffcc7c49c.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/chunks/pages/blog-post-b7dd75cee367e8ba8d9b.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/GytowMtwX_I3PxeWdMXvJ/_buildManifest.js"
+    ></script>
+    <script
+      async
+      across:static="/nextjs/_next/static/GytowMtwX_I3PxeWdMXvJ/_ssgManifest.js"
+    ></script>
+    <script
+      data-th-each='javascript :${webResourceRegistry.getResources("javascript-page-end")}'
+      data-th-src="@{${javascript.data}}"
+      data-th-if='${javascript.location != "inline" and javascript.location != "data"}'
+    ></script>
+  </body>
+</html>

@@ -6,15 +6,12 @@ export default function Homepage() {
   return (
     <>
       <Head>
-        <title>Homepage</title>
+        <title key="title">Homepage</title>
       </Head>
       <StaticContent
         element="header"
         className="intro-header"
-        {...{
-          'th:style':
-            "${'background-image: url(' + #webapp.path('@static:/nextjs/img/home-bg.jpg') + ')'}",
-        }}
+        data-th-style="${'background-image: url(' + #webapp.path('@static:/nextjs/img/home-bg.jpg') + ')'}"
       >
         <div className="container">
           <div className="row">
@@ -22,10 +19,7 @@ export default function Homepage() {
               <div className="site-heading">
                 <h1>Hello Across!</h1>
                 <hr className="small" />
-                <span
-                  className="subheading"
-                  {...{ 'th:text': '#{sample.message}' }}
-                >
+                <span className="subheading" data-th-text="#{sample.message}">
                   A message from your message source
                 </span>
               </div>
@@ -40,21 +34,16 @@ export default function Homepage() {
             element="div"
             className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
           >
-            <ThBlock {...{ 'th:each': 'post : ${blogsPage.content}' }}>
+            <ThBlock data-th-each="post : ${blogsPage.content}">
               <div className="post-preview">
-                <a {...{ 'th:href': "@{${'/post/' + post.id}}" }}>
-                  <h2
-                    className="post-title"
-                    {...{ 'th:text': '${post.title}' }}
-                  >
+                <a data-th-href="@{${'/post/' + post.id}}">
+                  <h2 className="post-title" data-th-text="${post.title}">
                     Man must explore, and this is exploration at its greatest
                   </h2>
                   <h3
                     className="post-subtitle"
-                    {...{
-                      'th:if': '${post.subTitle}',
-                      'th:text': '${post.subTitle}',
-                    }}
+                    data-th-if="${post.subTitle}"
+                    data-th-text="${post.subTitle}"
                   >
                     Clicking this block will open a controller without the
                     template applied.
@@ -62,7 +51,7 @@ export default function Homepage() {
                 </a>
                 <p className="post-meta">
                   Posted by{' '}
-                  <a href="#" {...{ 'th:text': '${post.author.name}' }}>
+                  <a href="#" data-th-text="${post.author.name}">
                     Across
                   </a>
                   <span
@@ -75,28 +64,14 @@ export default function Homepage() {
               </div>
               <hr />
             </ThBlock>
-
             <ul className="pager">
-              <li
-                className="previous"
-                {...{ 'th:unless': '${blogsPage.first}' }}
-              >
-                <a
-                  {...{
-                    'th:href':
-                      '@{/(page=${blogsPage.previousPageable().pageNumber})}',
-                  }}
-                >
+              <li className="previous" data-th-unless="${blogsPage.first}">
+                <a data-th-href="@{/(page=${blogsPage.previousPageable().pageNumber})}">
                   &larr; Newer Posts
                 </a>
               </li>
-              <li className="next" {...{ 'th:unless': '${blogsPage.last}' }}>
-                <a
-                  {...{
-                    'th:href':
-                      '@{/(page=${blogsPage.nextPageable().pageNumber})}',
-                  }}
-                >
+              <li className="next" data-th-unless="${blogsPage.last}">
+                <a data-th-href="@{/(page=${blogsPage.nextPageable().pageNumber})}">
                   Older Posts &rarr;
                 </a>
               </li>
