@@ -4,31 +4,31 @@ import Document, {
   Main,
   NextScript,
   DocumentContext,
-} from 'next/document'
-import * as React from 'react'
+} from "next/document";
+import * as React from "react";
 
 const inlineScript =
-  "(function ( Across ) {Across['' + [[${javascript.key}]]] = [[${javascript.data}]];})( window.Across = window.Across || {} );"
+  "(function ( Across ) {Across['' + [[${javascript.key}]]] = [[${javascript.data}]];})( window.Across = window.Across || {} );";
 
 class MyDocument extends Document<{ isLayout: boolean }> {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
+    const initialProps = await Document.getInitialProps(ctx);
 
-    const { pathname } = ctx
-    const isLayout = pathname.includes('across-layout')
+    const { pathname } = ctx;
+    const isLayout = pathname.includes("across-layout");
 
     return {
       ...initialProps,
       isLayout,
-    }
+    };
   }
 
   render() {
     return (
       <Html
         lang="en"
-        data-th-fragment={this.props.isLayout ? undefined : 'content'}
-        {...{ 'xmlns:th': 'http://www.thymeleaf.org' }}
+        data-th-fragment={this.props.isLayout ? undefined : "content"}
+        {...{ "xmlns:th": "http://www.thymeleaf.org" }}
       >
         <Head>
           <meta charSet="utf-8" />
@@ -172,8 +172,8 @@ class MyDocument extends Document<{ isLayout: boolean }> {
           ></script>
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

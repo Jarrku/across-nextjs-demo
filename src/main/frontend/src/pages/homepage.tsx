@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import * as React from 'react'
-import { StaticContent, ThBlock } from '../AcrossComponents'
+import Head from "next/head";
+import * as React from "react";
+import { StaticContent, ThBlock } from "../AcrossComponents";
 
 export default function Homepage() {
   return (
@@ -50,7 +50,7 @@ export default function Homepage() {
                   </h3>
                 </a>
                 <p className="post-meta">
-                  Posted by{' '}
+                  Posted by{" "}
                   <a href="#" data-th-text="${post.author.name}">
                     Across
                   </a>
@@ -80,5 +80,5 @@ export default function Homepage() {
         </div>
       </div>
     </>
-  )
+  );
 }

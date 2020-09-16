@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import { StaticContent } from '../AcrossComponents'
+import Head from "next/head";
+import { StaticContent } from "../AcrossComponents";
 
 export default function BlogPost() {
   return (
@@ -29,7 +29,7 @@ export default function BlogPost() {
                     Problems look mighty small from 150 miles up
                   </h2>
                   <span className="meta">
-                    Posted by{' '}
+                    Posted by{" "}
                     <a href="#" data-th-text="${post.author.name}">
                       Across
                     </a>
@@ -60,5 +60,5 @@ export default function BlogPost() {
         </article>
       </StaticContent>
     </>
-  )
+  );
 }

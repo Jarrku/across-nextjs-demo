@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import * as React from 'react'
-import { StaticContent } from '../AcrossComponents'
+import Head from "next/head";
+import * as React from "react";
+import { StaticContent } from "../AcrossComponents";
 
 export default function About() {
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
-    const intervalId = window.setInterval(() => setCount((c) => c + 1), 100)
-    return () => window.clearInterval(intervalId)
-  }, [])
+    const intervalId = window.setInterval(() => setCount((c) => c + 1), 100);
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   return (
     <>
@@ -20,9 +20,9 @@ export default function About() {
         className="intro-header"
         data-th-style="${'background-image: url(' + #webapp.path('@static:/nextjs/img/about-bg.jpg') + ')'}"
         onMount={(el) => {
-          const h1 = el?.querySelector('h1')
+          const h1 = el?.querySelector("h1");
           if (h1) {
-            h1.innerText = 'But more about you...'
+            h1.innerText = "But more about you...";
           }
         }}
       >
@@ -67,5 +67,5 @@ export default function About() {
         </div>
       </div>
     </>
-  )
+  );
 }

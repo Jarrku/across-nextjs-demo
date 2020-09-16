@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function AdminDemo() {
   return (
@@ -9,5 +9,5 @@ export default function AdminDemo() {
       Demo admin controller body. The content fragment is included in the
       default admin layout.
     </>
-  )
+  );
 }
